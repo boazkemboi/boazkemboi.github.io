@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
+      - name: Install Dependencies
+        run: |
+          # Install any dependencies your project needs
+          # For example, if using npm for JavaScript dependencies:
+          # npm install
+
+      - name: Build
+        run: |
+          # Add any build commands here
+          # For example, if you have a build script:
+          # ./build.sh
+
+      - name: Deploy to GitHub Pages
+        run: |
+          # Deploy your files to GitHub Pages
+          # Replace 'docs' with the directory containing your static files
+          cp -r * docs/
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
