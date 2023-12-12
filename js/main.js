@@ -77,7 +77,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'process.php', // Update to the correct path
+            url: 'js/process.php', // Update to the correct path
             data: formData,
             dataType: 'json',
             success: function (response) {
