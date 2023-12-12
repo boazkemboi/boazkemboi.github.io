@@ -77,7 +77,8 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'js/process.php', // Update to the correct path
+            url: 'http://boazkemboi.pythoneverywhere.com/best%20allies/process.php
+', // Update to the correct path
             data: formData,
             dataType: 'json',
             success: function (response) {
