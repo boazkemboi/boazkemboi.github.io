@@ -1,6 +1,4 @@
-(function ($) {
-    "use strict";
-
+$(document).ready(function () {
     // Spinner
     var spinner = function () {
         setTimeout(function () {
@@ -10,11 +8,9 @@
         }, 1);
     };
     spinner();
-    
-    
+
     // Initiate the wowjs
     new WOW().init();
-
 
     // Sticky Navbar
     $(window).scroll(function () {
@@ -24,8 +20,7 @@
             $('.sticky-top').css('top', '-100px');
         }
     });
-    
-    
+
     // Back to top button
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
@@ -38,7 +33,6 @@
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
-
 
     // Header carousel
     $(".header-carousel").owlCarousel({
@@ -53,7 +47,6 @@
             '<i class="bi bi-chevron-right"></i>'
         ]
     });
-
 
     // Testimonials carousel
     $(".testimonial-carousel").owlCarousel({
@@ -76,6 +69,27 @@
             }
         }
     });
-    
-})(jQuery);
 
+    // Form submission with Ajax
+    $('#contactForm').submit(function (event) {
+        event.preventDefault();
+        var formData = $(this).serialize();
+
+        $.ajax({
+            type: 'POST',
+            url: 'process.php', // Update to the correct path
+            data: formData,
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    alert("Message sent successfully!");
+                } else {
+                    alert("Error sending message. Please try again later.");
+                }
+            },
+            error: function () {
+                alert("Error sending message. Please try again later.");
+            }
+        });
+    });
+});
