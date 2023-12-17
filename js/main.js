@@ -77,7 +77,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: 'POST',
-            url: 'https://boazkemboi.co.ke/process.php', // Update to the correct path
+            url: 'https://boazkemboi.co.ke/proces.php', // Update to the correct path
             data: formData,
             dataType: 'json',
             success: function (response) {
